@@ -4,7 +4,7 @@ on: push
 env:
   REGISTRY: ghrc.io
     IMAGE_NAME: dfsgwb/catalog-service
-    version: latest
+    VERSION: latest
 
 jobs:
   build:
