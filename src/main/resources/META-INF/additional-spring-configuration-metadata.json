@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "polar.greeting",
+      "type": "java.lang.String",
+      "description": "Description for polar.greeting."
+  }
+] }
