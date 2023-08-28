@@ -2,9 +2,10 @@ name: Commit Stage
 on: push
 
 env:
-  REGISTRY: ghrc.io
-    IMAGE_NAME: dfsgwb/catalog-service
-    VERSION: latest
+  REGISTRY: ghcr.io
+  IMAGE_NAME: dfsgwb/catalog-service
+  VERSION: latest
+
 
 jobs:
   build:
@@ -60,8 +61,8 @@ jobs:
       - name: Build container image
         run: |
           chmod +x gradlew
-          ./gradlew bootBuildImage
-           docker build --build-arg JAR_FILE=target/lib/*.jar -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.version }} .
+          ./gradlew build
+           docker build --build-arg JAR_FILE=build/libs/*.jar -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.version }} .
       - name: OCI image vulnerability scanning
         uses: anchore/scan-action@v3
         id: scan
