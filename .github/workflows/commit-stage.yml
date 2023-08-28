@@ -24,9 +24,9 @@ jobs:
           java-version: 17
           cache: gradle
       - name: Build, unit tests and integration tests
-          run: |
-            chmod +x gradlew
-            ./gradlew build
+        run: |
+          chmod +x gradlew
+          ./gradlew build
       - name: Code vulnerability scanning
         uses: anchore/scan-action@v3
         id: scan
@@ -42,8 +42,8 @@ jobs:
 
   package:
     name: Package and Publish
-    if: ${{github.ref == 'refs/heads/main'}}
-    needs: [build]
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [ build ]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
