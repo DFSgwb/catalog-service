@@ -39,7 +39,6 @@ jobs:
         if: success() || failure()
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
-
   package:
     name: Package and Publish
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -62,7 +61,7 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build
-           docker build --build-arg JAR_FILE=build/libs/*.jar -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.version }} .
+          docker build --build-arg JAR_FILE=build/libs/*.jar -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }} .
       - name: OCI image vulnerability scanning
         uses: anchore/scan-action@v3
         id: scan
