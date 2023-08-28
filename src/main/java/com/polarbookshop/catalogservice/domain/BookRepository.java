@@ -18,4 +18,3 @@ public interface BookRepository extends CrudRepository<Book,Long> {
 	void deleteByIsbn(String isbn);
 
 }
-
