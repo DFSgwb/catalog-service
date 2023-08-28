@@ -1,6 +1,7 @@
 name: Commit Stage
 on: push
 
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: dfsgwb/catalog-service
